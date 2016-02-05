@@ -17,3 +17,13 @@
     name: nginx
     enabled: yes
     state: started
+
+- name: ensure webserver ports are open in firewall
+  firewalld:
+    service: "{{ item[0] }}"
+    zone: "{{ item[1] }}"
+    permanent: true
+    state: enabled
+  with_nested:
+    - [ "http", "https" ]
+    - "{{ nginx_firewall_zones }}"
