@@ -1,0 +1,10 @@
+---
+- hosts: all
+  roles:
+    - ansible-role-nginx
+  vars:
+    nginx_vhosts:
+      - name: example
+        listen: 80
+        server_name: example.com
+        root: /vagrant/ansible-role-nginx/tests
