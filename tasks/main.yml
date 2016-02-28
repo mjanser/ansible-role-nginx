@@ -13,7 +13,7 @@
     src: vhost.conf.j2
     dest: "/etc/nginx/conf.d/vhost_{{ item.name }}.conf"
     mode: 0644
-  with_items: nginx_vhosts
+  with_items: "{{ nginx_vhosts }}"
   notify:
     - reload nginx
 
