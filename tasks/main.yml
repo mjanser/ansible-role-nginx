@@ -3,11 +3,6 @@
   package:
     name: nginx
 
-- name: ensure directory for global nginx configuration files exists
-  file:
-    path: /etc/nginx/global.d
-    state: directory
-
 - name: ensure nginx vhosts are configured
   template:
     src: vhost.conf.j2

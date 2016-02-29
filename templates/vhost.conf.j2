@@ -16,8 +16,6 @@ server {
     error_log {{ item.error_log }} error;
     {% endif %}
 
-    include /etc/nginx/global.d/*.conf;
-
     {% if item.extra_parameters is defined %}
     {{ item.extra_parameters }}
     {% endif %}

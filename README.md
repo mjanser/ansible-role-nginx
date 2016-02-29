@@ -1,7 +1,6 @@
 # Ansible Role: nginx
 
 An Ansible role that installs nginx on Fedora.
-It will create the directory `/etc/nginx/global.d` which gets included in all virtual host configurations.
 
 ## Requirements
 
