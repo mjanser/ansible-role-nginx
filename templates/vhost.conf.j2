@@ -4,7 +4,9 @@ server {
 
     root {{ item.root }};
 
-    index {{ item.index | default('index.html') }};
+    {% if item.index is defined %}
+    index {{ item.index  }};
+    {% endif %}
 
     {% if item.error_page is defined %}
     error_page {{ item.error_page }};

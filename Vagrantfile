@@ -1,9 +1,9 @@
 Vagrant.configure('2') do |config|
-  config.vm.box = 'obnox/fedora24-64-lxc'
-  config.vm.hostname = 'ansible-role-nginx-fedora-24'
+  config.vm.box = 'mjanser/fedora25-64-lxc'
+  config.vm.hostname = 'ansible-role-nginx'
 
-  config.vm.provision "ansible_local" do |ansible|
-    ansible.playbook = "playbook.yml"
+  config.vm.provision 'ansible_local' do |ansible|
+    ansible.playbook = 'playbook.yml'
     ansible.sudo = true
   end
 
