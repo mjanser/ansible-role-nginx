@@ -1,0 +1,25 @@
+---
+- name: ensure nginx vhosts are configured
+  template:
+    src: vhost.conf.j2
+    dest: "/etc/nginx/sites-available/{{ item.name }}"
+    mode: 0644
+  with_items: "{{ nginx_vhosts }}"
+  notify:
+    - reload nginx
+
+- name: ensure nginx vhosts are enabled
+  file:
+    src: "/etc/nginx/sites-available/{{ item.name }}"
+    dest: "/etc/nginx/sites-enabled/{{ item.name }}"
+    state: link
+  with_items: "{{ nginx_vhosts }}"
+  notify:
+    - reload nginx
+
+- name: ensure default nginx vhost is disabled
+  file:
+    path: /etc/nginx/sites-enabled/default
+    state: absent
+  notify:
+    - reload nginx
