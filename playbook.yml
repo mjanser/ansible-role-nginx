@@ -1,5 +1,9 @@
 ---
 - hosts: all
+  pre_tasks:
+    - name: ensure curl is installed
+      package:
+        name: curl
   roles:
     - vagrant
   vars:

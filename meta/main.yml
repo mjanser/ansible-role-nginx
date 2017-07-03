@@ -7,7 +7,7 @@ galaxy_info:
   platforms:
     - name: Debian
       versions:
-        - jessie
+        - stretch
     - name: Fedora
   galaxy_tags:
     - web
